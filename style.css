@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Cairo', sans-serif;
   background: var(--bg-light);
   color: var(--text-dark);
   overflow-x: hidden;
@@ -341,4 +341,30 @@ body > p {
   section > div:hover {
     transform: translateY(-3px);
   }
+}
+
+/* ====================================================
+   RTL OVERRIDES
+   Applied automatically when dir="rtl" is on <html>
+==================================================== */
+
+/* Flip the header glow from top-left to top-right */
+[dir="rtl"] header::before {
+  left: auto;
+  right: -20%;
+}
+
+/* The h1 underline accent — re-center it (already centered, but explicit is safer) */
+[dir="rtl"] header h1::after {
+  margin: 0.8rem auto 0;
+}
+
+/* The top accent line on cards sweeps from the right in RTL */
+[dir="rtl"] section > div::before {
+  transform-origin: right;
+}
+
+/* Section scrolls right-to-left on desktop */
+[dir="rtl"] section {
+  direction: rtl;
 }
