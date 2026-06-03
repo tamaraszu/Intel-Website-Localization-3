@@ -1,85 +1,78 @@
 /* ====================================================
-   FIRST: Load our custom fonts from Google Fonts
-   Barlow = the main text font
-   Barlow Condensed = the big bold heading font
+   FONTS
+   Plus Jakarta Sans = body text
+   Syne = bold headings (replaces Barlow Condensed)
 ==================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Syne:wght@700;800&display=swap');
 
 /* ====================================================
    RESET
-   Browsers add default spacing to elements.
-   This removes all of that so we start fresh.
 ==================================================== */
 *, *::before, *::after {
-  box-sizing: border-box; /* Makes width/height include padding, not add to it */
-  margin: 0;              /* Remove default outer spacing */
-  padding: 0;             /* Remove default inner spacing */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ====================================================
-   CSS VARIABLES (like a color palette / settings panel)
-   We define our colors and effects once here at the top.
-   Then we use them everywhere below with var(--name).
-   If you want to change a color, just change it here!
+   CSS VARIABLES
 ==================================================== */
 :root {
-  --intel-blue-dark:  #003C71;                      /* Dark navy blue */
-  --intel-blue-mid:   #0068B5;                      /* Medium Intel blue */
-  --intel-blue-light: #00AEEF;                      /* Light blue */
-  --intel-cyan:       #00C7FD;                      /* Bright cyan accent */
-  --intel-white:      #FFFFFF;                      /* Pure white */
-  --bg-light:         #F2F4F7;                      /* Very light gray page background */
-  --text-dark:        #1A1A2E;                      /* Almost black text */
-  --text-mid:         #3D4A5C;                      /* Medium gray text */
-  --text-muted:       #6B7A90;                      /* Light gray text (less important) */
-  --card-bg:          #FFFFFF;                      /* White card background */
-  --card-border:      rgba(0, 104, 181, 0.12);      /* Very faint blue border */
-  --card-hover-border:rgba(0, 174, 239, 0.5);       /* Brighter blue border on hover */
-  --shadow-card:      0 4px 24px rgba(0, 60, 113, 0.08);   /* Soft shadow under cards */
-  --shadow-hover:     0 16px 48px rgba(0, 104, 181, 0.18); /* Bigger shadow when hovered */
-  --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation timing */
+  --intel-blue-dark:   #003C71;
+  --intel-blue-mid:    #0068B5;
+  --intel-blue-light:  #00AEEF;
+  --intel-cyan:        #00C7FD;
+  --intel-white:       #FFFFFF;
+  --bg-light:          #F2F4F7;
+  --text-dark:         #1A1A2E;
+  --text-mid:          #3D4A5C;
+  --text-muted:        #6B7A90;
+  --card-bg:           #FFFFFF;
+  --card-border:       rgba(0, 104, 181, 0.12);
+  --card-hover-border: rgba(0, 174, 239, 0.5);
+  --shadow-card:       0 4px 24px rgba(0, 60, 113, 0.08);
+  --shadow-hover:      0 16px 48px rgba(0, 104, 181, 0.18);
+  --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ====================================================
-   HTML & BODY
-   Basic page settings
+   BASE
 ==================================================== */
 html {
-  scroll-behavior: smooth; /* Makes clicking anchor links scroll smoothly */
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif; /* Use our Barlow font everywhere */
-  background: var(--bg-light);       /* Light gray page background */
-  color: var(--text-dark);           /* Default text color */
-  overflow-x: hidden;                /* Prevent horizontal scrollbar */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
 }
 
 /* ====================================================
-   HEADER (the big blue hero section at the top)
+   HEADER
 ==================================================== */
 header {
-  /* Blue gradient background going from dark navy → medium blue → lighter blue */
   background: linear-gradient(145deg, var(--intel-blue-dark) 0%, var(--intel-blue-mid) 55%, #0090D0 100%);
-  padding: 3.5rem 2rem 5rem; /* Space inside: top, left/right, bottom */
-  text-align: center;        /* Center everything */
-  position: relative;        /* Needed so the decorative effects inside position correctly */
-  overflow: hidden;          /* Hide anything that goes outside the header box */
+  padding: 3.5rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* A soft glowing light effect in the top-left corner of the header */
+/* Decorative glow — top-left */
 header::before {
-  content: '';           /* Required for decorative elements — no actual text */
-  position: absolute;    /* Positioned relative to the header */
+  content: '';
+  position: absolute;
   top: -40%;
   left: -20%;
   width: 70%;
   height: 200%;
   background: radial-gradient(ellipse, rgba(0, 199, 253, 0.12) 0%, transparent 70%);
-  pointer-events: none;  /* Clicks pass through this — it's decoration only */
+  pointer-events: none;
 }
 
-/* The curved white shape at the bottom of the header */
+/* Curved white wave at the bottom of the header */
 header::after {
   content: '';
   position: absolute;
@@ -87,235 +80,96 @@ header::after {
   left: 0;
   right: 0;
   height: 60px;
-  background: var(--bg-light);                    /* Same color as the page background */
-  clip-path: ellipse(55% 100% at 50% 100%);       /* Cuts the div into a curved ellipse shape */
+  background: var(--bg-light);
+  clip-path: ellipse(55% 100% at 50% 100%);
 }
 
-/* The div wrapping all the header content (logo, heading, text) */
 header > div {
-  position: relative; /* Sits on top of the decorative effects */
-  z-index: 1;         /* Makes sure it appears above the ::before glow */
-  max-width: 760px;   /* Don't let content get too wide on big screens */
-  margin: 0 auto;     /* Center it horizontally */
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-/* The Intel logo image */
 header img {
   width: 90px;
   margin-bottom: 1.5rem;
-  filter: brightness(0) invert(1); /* Turns the logo white (works on dark backgrounds) */
+  filter: brightness(0) invert(1);
 }
 
-/* "Sustainability Through the Ages" heading */
 header h1 {
-  font-family: 'Barlow Condensed', sans-serif; /* Tall, bold condensed font */
-  font-size: clamp(1.7rem, 4vw, 2.8rem);       /* Responsive: never smaller than 1.7rem, never bigger than 2.8rem */
-  font-weight: 900;           /* Heaviest/boldest weight */
-  text-transform: uppercase;  /* ALL CAPS */
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
   color: var(--intel-white);
-  line-height: 1.05;          /* Tight line spacing for big headings */
-  letter-spacing: 0.02em;     /* Slight spacing between letters */
+  line-height: 1.05;
+  letter-spacing: 0.02em;
   margin-bottom: 1rem;
 }
 
-/* The small cyan line that appears under the h1 heading */
+/* Cyan underline accent below h1 */
 header h1::after {
   content: '';
   display: block;
   width: 64px;
   height: 3px;
-  background: var(--intel-cyan); /* Bright cyan color */
-  margin: 0.8rem auto 0;         /* Centered, with space above */
+  background: var(--intel-cyan);
+  margin: 0.8rem auto 0;
   border-radius: 2px;
 }
 
-/* The subtitle paragraph in the header */
 header p {
-  font-size: clamp(1rem, 2vw, 1.15rem); /* Responsive font size */
-  font-weight: 300;                      /* Light/thin weight */
-  color: rgba(255, 255, 255, 0.88);      /* White but slightly transparent */
-  line-height: 1.75;                     /* Comfortable reading line spacing */
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.75;
   max-width: 560px;
   margin: 0 auto;
 }
 
 /* ====================================================
-   TIMELINE SECTION
-   Horizontal scroll on desktop
-   Vertical stack on mobile
+   TIMELINE SECTION — horizontal scroll on desktop
 ==================================================== */
-
-/* ====================================================
-   TIMELINE LAYOUT
-==================================================== */
-
 section {
   display: flex;
   gap: 1.5rem;
-
   overflow-x: auto;
   overflow-y: hidden;
-
   padding: 3rem 2rem 4rem;
-
-  max-width: 100%;
-
-  /* Scroll Snap */
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-
-  /* Better scrolling feel */
   -webkit-overflow-scrolling: touch;
-}
-
-/* Each card snaps into position */
-section > div {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 /* ====================================================
    CARDS
-   4 visible at a time
 ==================================================== */
-
 section > div {
+  /* Show 4 cards across on desktop */
   flex: 0 0 calc((100% - 4.5rem) / 4);
-  /* 4 cards across with gaps */
-
   min-width: 260px;
 
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-
   border-radius: 16px;
-
   padding: 1.6rem 1.75rem 1.75rem;
 
   position: relative;
   overflow: hidden;
+  cursor: default;
 
   transition: var(--transition-smooth);
-
   box-shadow: var(--shadow-card);
 
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  /* Entrance animation */
+  animation: fadeSlideUp 0.55s ease both;
 }
 
-/* ====================================================
-   HOVER EFFECT
-==================================================== */
-
-section > div:hover {
-  transform: translateY(-8px);
-  border-color: var(--card-hover-border);
-  box-shadow: var(--shadow-hover);
-}
-
-/* ====================================================
-   PARAGRAPH ALWAYS VISIBLE
-==================================================== */
-
-section > div p {
-  font-size: 0.92rem;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--text-mid);
-
-  margin-top: 1rem;
-}
-
-/* ====================================================
-   TABLET
-   2 cards visible
-==================================================== */
-
-@media (max-width: 900px) {
-
-  section > div {
-    flex: 0 0 calc((100% - 1.5rem) / 2);
-  }
-}
-
-/* ====================================================
-   MOBILE
-   Stack vertically
-==================================================== */
-
-@media (max-width: 600px) {
-
-  section {
-    flex-direction: column;
-    overflow-x: visible;
-    padding: 2rem 1.25rem;
-  }
-
-  section > div {
-    flex: unset;
-    width: 100%;
-  }
-
-  section > div:hover {
-    transform: translateY(-3px);
-  }
-}
-
-/* ====================================================
-   TABLET
-==================================================== */
-
-@media (max-width: 900px) {
-  section > div {
-    flex: 0 0 280px;
-  }
-}
-
-/* ====================================================
-   MOBILE
-   Stack vertically
-==================================================== */
-
-@media (max-width: 600px) {
-
-  section {
-    flex-direction: column;
-    overflow-x: visible;
-    padding: 2rem 1.25rem;
-  }
-
-  section > div {
-    width: 100%;
-    flex: unset;
-  }
-
-  /* Keep text visible on mobile */
-  section > div p {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 1rem;
-  }
-
-  section > div:hover {
-    transform: translateY(-3px);
-  }
-}
-
-/* ====================================================
-   INDIVIDUAL CARDS (each <div> inside <section>)
-==================================================== */
-section > div {
-  background: var(--card-bg);              /* White background */
-  border: 1px solid var(--card-border);    /* Faint blue border */
-  border-radius: 16px;                     /* Rounded corners */
-  padding: 1.6rem 1.75rem 1.75rem;        /* Inner spacing */
-  position: relative;                      /* Needed for the decorative line on top */
-  overflow: hidden;                        /* Hide the top accent line when it's not active */
-  cursor: default;                         /* Normal cursor (not a pointer) */
-  transition: var(--transition-smooth);    /* Animate ALL changes smoothly */
-  box-shadow: var(--shadow-card);          /* Soft shadow */
-}
-
-/* The colored line that sweeps across the top of a card on hover */
+/* Top accent line — sweeps in on hover */
 section > div::before {
   content: '';
   position: absolute;
@@ -324,84 +178,71 @@ section > div::before {
   right: 0;
   height: 4px;
   background: linear-gradient(90deg, var(--intel-blue-mid), var(--intel-cyan));
-  transform: scaleX(0);        /* Start hidden (scaled to 0 width) */
-  transform-origin: left;      /* Grow from the left side */
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth sweep animation */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* A very subtle blue tint that appears over the card on hover */
+/* Subtle blue tint overlay — fades in on hover */
 section > div::after {
   content: '';
   position: absolute;
-  inset: 0;            /* Cover the entire card (shorthand for top/right/bottom/left: 0) */
+  inset: 0;
   background: linear-gradient(135deg, rgba(0, 174, 239, 0.04) 0%, transparent 60%);
-  opacity: 0;          /* Invisible by default */
+  opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
 
-/* --- What happens when you hover over a card --- */
+/* --- Hover state --- */
 section > div:hover {
-  transform: translateY(-6px);                  /* Float up 6px */
-  border-color: var(--card-hover-border);       /* Border becomes more visible */
-  box-shadow: var(--shadow-hover);              /* Shadow gets bigger/deeper */
+  transform: translateY(-6px);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--shadow-hover);
 }
 
-section > div:hover::before {
-  transform: scaleX(1); /* The top line sweeps in from the left */
-}
+section > div:hover::before { transform: scaleX(1); }
+section > div:hover::after  { opacity: 1; }
 
-section > div:hover::after {
-  opacity: 1; /* The blue tint fades in */
-}
+section > div:hover h2 { color: var(--intel-blue-mid); }
+section > div:hover p  { color: var(--text-dark); }
 
-section > div:hover h2 {
-  color: var(--intel-blue-mid); /* Year number turns medium blue */
-}
+section > div:hover img { transform: scale(1.03); }
 
-section > div:hover p {
-  color: var(--text-dark); /* Body text gets slightly darker */
-}
-
-/* The year number (1968, 1971, etc.) */
+/* Year number */
 section > div h2 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: 2.4rem;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--intel-blue-dark);
   letter-spacing: 0.01em;
   line-height: 1;
   margin-bottom: 0.3rem;
-  transition: color 0.3s ease; /* Color change animates smoothly on hover */
+  transition: color 0.3s ease;
 }
 
-/* The card title ("Intel Founded", "First Microprocessor", etc.) */
+/* Card title */
 section > div h3 {
   font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;      /* Wide spaced letters */
+  letter-spacing: 0.08em;
   color: var(--intel-blue-light);
   margin-bottom: 1rem;
 }
 
-/* Images inside cards */
+/* Card image */
 section > div img {
-  width: 100%;           /* Stretch to fill the card width */
-  height: 160px;         /* Fixed height so all images are the same size */
-  object-fit: cover;     /* Crop the image to fit without stretching */
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
   display: block;
   transition: transform 0.4s ease;
 }
 
-/* Image zooms in slightly on hover */
-section > div:hover img {
-  transform: scale(1.03);
-}
-
-/* The description paragraph inside each card */
+/* Card body text */
 section > div p {
   font-size: 0.92rem;
   font-weight: 400;
@@ -410,39 +251,7 @@ section > div p {
   transition: color 0.3s ease;
 }
 
-/* ====================================================
-   FOOTER TEXT ("Scroll to view timeline...")
-==================================================== */
-body > p {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  padding: 1.5rem 1rem 3rem;
-}
-
-/* ====================================================
-   ENTRANCE ANIMATION
-   Cards fade in and slide up when the page loads.
-==================================================== */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;              /* Start invisible */
-    transform: translateY(30px); /* Start 30px lower */
-  }
-  to {
-    opacity: 1;              /* End fully visible */
-    transform: translateY(0);    /* End at normal position */
-  }
-}
-
-/* Apply the animation to every card */
-section > div {
-  animation: fadeSlideUp 0.55s ease both;
-}
-
-/* Each card starts its animation slightly later than the previous one.
-   This creates a "staggered cascade" effect instead of all popping in at once. */
+/* Staggered entrance animation delays */
 section > div:nth-child(1) { animation-delay: 0.05s; }
 section > div:nth-child(2) { animation-delay: 0.10s; }
 section > div:nth-child(3) { animation-delay: 0.15s; }
@@ -454,46 +263,82 @@ section > div:nth-child(8) { animation-delay: 0.40s; }
 section > div:nth-child(9) { animation-delay: 0.45s; }
 
 /* ====================================================
-   RESPONSIVE DESIGN — TABLET (screens under 900px wide)
-   Slightly reduce padding and card min-width
+   FOOTER HINT TEXT
+==================================================== */
+body > p {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ====================================================
+   ENTRANCE ANIMATION
+==================================================== */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================================
+   RESPONSIVE — TABLET (≤ 900px): 2 cards visible
 ==================================================== */
 @media (max-width: 900px) {
   header {
     padding: 3rem 1.5rem 4.5rem;
   }
+
   section {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     padding: 3rem 1.5rem;
     gap: 1.25rem;
+  }
+
+  section > div {
+    flex: 0 0 280px;
   }
 }
 
 /* ====================================================
-   RESPONSIVE DESIGN — MOBILE (screens under 600px wide)
-   Stack everything into a single column
+   RESPONSIVE — MOBILE (≤ 600px): vertical stack
 ==================================================== */
 @media (max-width: 600px) {
   header {
     padding: 2.5rem 1.25rem 4rem;
   }
+
   header img {
-    width: 70px; /* Slightly smaller logo on mobile */
+    width: 70px;
   }
+
   section {
-    grid-template-columns: 1fr; /* Force single column */
+    flex-direction: column;
+    overflow-x: visible;
     padding: 2rem 1.25rem;
     gap: 1rem;
   }
+
   section > div {
+    flex: unset;
+    width: 100%;
     padding: 1.35rem 1.4rem 1.5rem;
   }
+
   section > div h2 {
-    font-size: 2rem; /* Slightly smaller year number on mobile */
+    font-size: 2rem;
   }
+
   section > div img {
     height: 140px;
   }
+
   section > div:hover {
-    transform: translateY(-3px); /* Smaller hover lift on mobile */
+    transform: translateY(-3px);
   }
 }
