@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
 
@@ -166,6 +167,161 @@
     </div>
   </div>
 
+  <!-- FAQ Accordion -->
+  <div class="container my-5">
+    <h2 class="section-title text-center mb-4">Sustainability Deep Dive</h2>
+    <div class="accordion intel-accordion" id="sustainabilityAccordion">
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingClimate">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClimate" aria-expanded="true" aria-controls="collapseClimate">
+            🌱 Climate &amp; Emissions — What is Intel doing?
+          </button>
+        </h3>
+        <div id="collapseClimate" class="accordion-collapse collapse show" aria-labelledby="headingClimate" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Intel has reduced its absolute greenhouse gas emissions by over 60% since its 2006 peak. This has been achieved through large-scale chemical abatement systems installed at manufacturing facilities, a shift to renewable electricity sources, and continuous improvements in energy efficiency across chipmaking processes. Intel's net-zero commitment targets Scope 1 and Scope 2 emissions by 2040, with interim milestones reviewed annually.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingWater">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWater" aria-expanded="false" aria-controls="collapseWater">
+            💧 Water Stewardship — How does Intel manage water use?
+          </button>
+        </h3>
+        <div id="collapseWater" class="accordion-collapse collapse" aria-labelledby="headingWater" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Semiconductor manufacturing is water-intensive, requiring ultra-pure water for chip fabrication. Intel's 2030 RISE goals include achieving net positive water use — meaning Intel will restore more fresh water to local watersheds than it consumes. This involves water recycling programmes, conservation projects, and partnerships with local communities near manufacturing sites in the US, Israel, Ireland, and Malaysia.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingWaste">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWaste" aria-expanded="false" aria-controls="collapseWaste">
+            ♻️ Waste &amp; Circular Economy — How is waste reduced?
+          </button>
+        </h3>
+        <div id="collapseWaste" class="accordion-collapse collapse" aria-labelledby="headingWaste" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Intel targets zero total waste to landfill across its global operations. Manufacturing byproducts such as solvents, acids, and metals are recovered and diverted into reuse or recycling streams wherever possible. Intel also works with suppliers to reduce packaging waste and is exploring closed-loop material recovery for rare elements used in chip production.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingEnergy">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnergy" aria-expanded="false" aria-controls="collapseEnergy">
+            ⚡ Renewable Energy — How did Intel reach 99%?
+          </button>
+        </h3>
+        <div id="collapseEnergy" class="accordion-collapse collapse" aria-labelledby="headingEnergy" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            In 2023, Intel achieved 99% renewable electricity usage across its worldwide operations. This was accomplished through a combination of directly sourced renewable energy contracts, renewable energy certificates (RECs), and on-site solar installations. Intel works with energy providers in each country where it operates to match consumption with clean generation, adapting to the constraints of local energy grids.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingRISE">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRISE" aria-expanded="false" aria-controls="collapseRISE">
+            🎯 RISE Strategy — What are the 2030 goals?
+          </button>
+        </h3>
+        <div id="collapseRISE" class="accordion-collapse collapse" aria-labelledby="headingRISE" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Launched in 2020, Intel's RISE strategy stands for Responsible, Inclusive, Sustainable, and Enabling. The 2030 goals span four pillars: achieving net positive water use, reaching zero total waste to landfill, maintaining over 90% renewable electricity, and driving supplier adoption of sustainable practices. Progress is publicly reported each year in Intel's Corporate Responsibility Report.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RISE 2030 Goals Progress Bars -->
+  <div class="container my-5">
+    <h2 class="section-title text-center mb-2">RISE 2030 Goals — Progress Tracker</h2>
+    <p class="text-center mb-5" style="color: var(--text-muted); font-size: 0.92rem;">Tracking Intel's journey toward its key sustainability targets as of 2024.</p>
+
+    <div class="progress-grid">
+
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span class="progress-label">⚡ Renewable Electricity</span>
+          <span class="progress-value">99%</span>
+        </div>
+        <p class="progress-description">Percentage of global electricity consumption matched by renewable sources.</p>
+        <div class="progress" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-electricity" style="width: 0%" data-target="99"></div>
+        </div>
+        <div class="progress-footer"><span class="progress-status progress-status--on-track">On track</span><span>Target: 100% by 2030</span></div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span class="progress-label">🌱 GHG Emissions Reduction</span>
+          <span class="progress-value">60%</span>
+        </div>
+        <p class="progress-description">Reduction in absolute Scope 1 &amp; 2 greenhouse gas emissions since 2006 peak.</p>
+        <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-ghg" style="width: 0%" data-target="60"></div>
+        </div>
+        <div class="progress-footer"><span class="progress-status progress-status--on-track">On track</span><span>Target: Net-zero by 2040</span></div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span class="progress-label">💧 Water Restoration</span>
+          <span class="progress-value">45%</span>
+        </div>
+        <p class="progress-description">Progress toward restoring more fresh water than consumed across all global sites.</p>
+        <div class="progress" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-water" style="width: 0%" data-target="45"></div>
+        </div>
+        <div class="progress-footer"><span class="progress-status progress-status--in-progress">In progress</span><span>Target: Net positive by 2030</span></div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span class="progress-label">♻️ Waste Diverted from Landfill</span>
+          <span class="progress-value">80%</span>
+        </div>
+        <p class="progress-description">Manufacturing waste successfully diverted into reuse, recycling, or recovery streams.</p>
+        <div class="progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-waste" style="width: 0%" data-target="80"></div>
+        </div>
+        <div class="progress-footer"><span class="progress-status progress-status--in-progress">In progress</span><span>Target: Zero to landfill by 2030</span></div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span class="progress-label">🏭 Supplier Sustainability Adoption</span>
+          <span class="progress-value">55%</span>
+        </div>
+        <p class="progress-description">Proportion of key suppliers aligned with Intel's responsible supply chain standards.</p>
+        <div class="progress" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-supply" style="width: 0%" data-target="55"></div>
+        </div>
+        <div class="progress-footer"><span class="progress-status progress-status--in-progress">In progress</span><span>Target: 100% by 2030</span></div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-card-header">
+          <span class="progress-label">🌍 Conservation Projects Funded</span>
+          <span class="progress-value">70%</span>
+        </div>
+        <p class="progress-description">Progress toward Intel's goal of funding biodiversity and ecosystem restoration projects globally.</p>
+        <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-conservation" style="width: 0%" data-target="70"></div>
+        </div>
+        <div class="progress-footer"><span class="progress-status progress-status--on-track">On track</span><span>Target: Full coverage by 2030</span></div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Newsletter Subscription Form -->
   <div class="container my-5">
     <div class="newsletter-form-wrap mx-auto">
@@ -255,6 +411,25 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Animate progress bars when they scroll into view
+    const bars = document.querySelectorAll('.progress-bar[data-target]');
+    const animateBar = (bar) => {
+      const target = bar.getAttribute('data-target');
+      bar.style.transition = 'width 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+      bar.style.width = target + '%';
+    };
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateBar(entry.target);
+          observer2.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    bars.forEach(bar => observer2.observe(bar));
+  </script>
 
   <script>
     document.getElementById('submitBtn').addEventListener('click', function () {

@@ -626,3 +626,174 @@ body > p {
     gap: 0.25rem 1rem;
   }
 }
+
+/* ====================================================
+   SECTION TITLE (shared by accordion + progress)
+==================================================== */
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 800;
+  color: var(--intel-blue-dark);
+  letter-spacing: 0.01em;
+}
+
+/* ====================================================
+   ACCORDION
+==================================================== */
+.intel-accordion {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.intel-accordion .accordion-item {
+  border: none;
+  border-bottom: 1px solid rgba(0, 104, 181, 0.1);
+  background: #fff;
+}
+
+.intel-accordion .accordion-item:last-child {
+  border-bottom: none;
+}
+
+.intel-accordion .accordion-button {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: #fff;
+  padding: 1.2rem 1.5rem;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.intel-accordion .accordion-button:not(.collapsed) {
+  color: var(--intel-blue-mid);
+  background: #f0f7ff;
+  box-shadow: none;
+}
+
+.intel-accordion .accordion-button:not(.collapsed)::after {
+  filter: invert(28%) sepia(89%) saturate(1200%) hue-rotate(196deg) brightness(90%);
+}
+
+.intel-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(0, 104, 181, 0.15);
+  outline: none;
+}
+
+/* Left accent bar on open item */
+.intel-accordion .accordion-button:not(.collapsed) {
+  border-left: 4px solid var(--intel-blue-mid);
+  padding-left: calc(1.5rem - 4px);
+}
+
+.intel-accordion .accordion-body {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  padding: 0.25rem 1.5rem 1.4rem 1.5rem;
+  background: #f0f7ff;
+}
+
+/* ====================================================
+   PROGRESS BARS
+==================================================== */
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.progress-card {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+.progress-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.progress-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.progress-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--intel-blue-dark);
+}
+
+.progress-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.progress {
+  height: 10px;
+  border-radius: 99px;
+  background: #e4ecf5;
+  overflow: hidden;
+}
+
+/* Individual bar colours */
+.progress-bar-electricity { background: linear-gradient(90deg, #0068B5, #00C7FD); }
+.progress-bar-ghg         { background: linear-gradient(90deg, #1a7a3c, #4cbb6e); }
+.progress-bar-water       { background: linear-gradient(90deg, #0077a8, #00AEEF); }
+.progress-bar-waste       { background: linear-gradient(90deg, #d97700, #f5a623); }
+.progress-bar-supply      { background: linear-gradient(90deg, #5b3fb5, #9b7fe8); }
+.progress-bar-conservation{ background: linear-gradient(90deg, #1a7a3c, #00C7FD); }
+
+.progress-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.progress-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+
+.progress-status--on-track {
+  background: #e2f5ea;
+  color: #1a7a3c;
+}
+
+.progress-status--in-progress {
+  background: #fff3dc;
+  color: #b06000;
+}
+
+/* Responsive progress grid */
+@media (max-width: 700px) {
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+}
