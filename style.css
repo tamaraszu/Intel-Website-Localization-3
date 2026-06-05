@@ -49,7 +49,6 @@ header {
   overflow: hidden;
 }
 
-/* Decorative glow — top-left */
 header::before {
   content: '';
   position: absolute;
@@ -61,7 +60,6 @@ header::before {
   pointer-events: none;
 }
 
-/* Curved white wave at the bottom of the header */
 header::after {
   content: '';
   position: absolute;
@@ -97,7 +95,6 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-/* Cyan underline accent below h1 */
 header h1::after {
   content: '';
   display: block;
@@ -118,7 +115,7 @@ header p {
 }
 
 /* ====================================================
-   TIMELINE SECTION — horizontal scroll on desktop
+   TIMELINE SECTION
 ==================================================== */
 section {
   display: flex;
@@ -135,30 +132,22 @@ section {
    CARDS
 ==================================================== */
 section > div {
-  /* Show 4 cards across on desktop */
   flex: 0 0 calc((100% - 4.5rem) / 4);
   min-width: 260px;
-
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 1.6rem 1.75rem 1.75rem;
-
   position: relative;
   overflow: hidden;
   cursor: default;
-
   transition: var(--transition-smooth);
   box-shadow: var(--shadow-card);
-
   scroll-snap-align: start;
   scroll-snap-stop: always;
-
-  /* Entrance animation */
   animation: fadeSlideUp 0.55s ease both;
 }
 
-/* Top accent line — sweeps in on hover */
 section > div::before {
   content: '';
   position: absolute;
@@ -172,7 +161,6 @@ section > div::before {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Subtle blue tint overlay — fades in on hover */
 section > div::after {
   content: '';
   position: absolute;
@@ -183,7 +171,6 @@ section > div::after {
   pointer-events: none;
 }
 
-/* --- Hover state --- */
 section > div:hover {
   transform: translateY(-6px);
   border-color: var(--card-hover-border);
@@ -192,13 +179,10 @@ section > div:hover {
 
 section > div:hover::before { transform: scaleX(1); }
 section > div:hover::after  { opacity: 1; }
-
 section > div:hover h2 { color: var(--intel-blue-mid); }
 section > div:hover p  { color: var(--text-dark); }
-
 section > div:hover img { transform: scale(1.03); }
 
-/* Year number */
 section > div h2 {
   font-family: 'Syne', sans-serif;
   font-size: 2.4rem;
@@ -210,7 +194,6 @@ section > div h2 {
   transition: color 0.3s ease;
 }
 
-/* Card title */
 section > div h3 {
   font-size: 0.95rem;
   font-weight: 700;
@@ -220,7 +203,6 @@ section > div h3 {
   margin-bottom: 1rem;
 }
 
-/* Card image */
 section > div img {
   width: 100%;
   height: 160px;
@@ -231,7 +213,6 @@ section > div img {
   transition: transform 0.4s ease;
 }
 
-/* Card body text */
 section > div p {
   font-size: 0.92rem;
   font-weight: 400;
@@ -240,7 +221,6 @@ section > div p {
   transition: color 0.3s ease;
 }
 
-/* Staggered entrance animation delays */
 section > div:nth-child(1) { animation-delay: 0.05s; }
 section > div:nth-child(2) { animation-delay: 0.10s; }
 section > div:nth-child(3) { animation-delay: 0.15s; }
@@ -277,7 +257,7 @@ body > p {
 }
 
 /* ====================================================
-   RESPONSIVE — TABLET (≤ 900px): 2 cards visible
+   RESPONSIVE — TABLET (≤ 900px)
 ==================================================== */
 @media (max-width: 900px) {
   header {
@@ -295,7 +275,7 @@ body > p {
 }
 
 /* ====================================================
-   RESPONSIVE — MOBILE (≤ 600px): vertical stack
+   RESPONSIVE — MOBILE (≤ 600px)
 ==================================================== */
 @media (max-width: 600px) {
   header {
@@ -334,26 +314,20 @@ body > p {
 
 /* ====================================================
    RTL OVERRIDES
-   Applied automatically when dir="rtl" is on <html>
 ==================================================== */
-
-/* Flip the header glow from top-left to top-right */
 [dir="rtl"] header::before {
   left: auto;
   right: -20%;
 }
 
-/* The h1 underline accent — re-center it (already centered, but explicit is safer) */
 [dir="rtl"] header h1::after {
   margin: 0.8rem auto 0;
 }
 
-/* The top accent line on cards sweeps from the right in RTL */
 [dir="rtl"] section > div::before {
   transform-origin: right;
 }
 
-/* Section scrolls right-to-left on desktop */
 [dir="rtl"] section {
   direction: rtl;
 }
@@ -365,35 +339,35 @@ body > p {
   max-width: 560px;
   font-family: 'Cairo', sans-serif;
 }
- 
+
 .newsletter-header {
-  background: linear-gradient(145deg, var(--intel-blue-dark) 0%, var(--intel-blue-mid) 55%, #003C71 100%);
+  background: linear-gradient(145deg, var(--intel-blue-dark) 0%, var(--intel-blue-mid) 55%, #0090D0 100%);
   border-radius: 14px 14px 0 0;
   padding: 2rem 2rem 1.75rem;
   color: #fff;
   text-align: center;
 }
- 
+
 .newsletter-header img {
   width: 60px;
   margin-bottom: 0.75rem;
   filter: brightness(0) invert(1);
 }
- 
+
 .newsletter-header h2 {
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0 0 0.25rem;
   color: #fff;
 }
- 
+
 .newsletter-header p {
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.82);
   margin: 0;
   line-height: 1.5;
 }
- 
+
 .newsletter-body {
   background: #fff;
   border: 1px solid #d0dbe8;
@@ -401,14 +375,14 @@ body > p {
   border-radius: 0 0 14px 14px;
   padding: 1.75rem 2rem 2rem;
 }
- 
+
 .newsletter-body .form-label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 4px;
 }
- 
+
 .newsletter-body .form-control,
 .newsletter-body .form-select {
   font-family: 'Cairo', sans-serif;
@@ -418,43 +392,43 @@ body > p {
   padding: 0.5rem 0.85rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
- 
+
 .newsletter-body .form-control:focus,
 .newsletter-body .form-select:focus {
   border-color: var(--intel-blue-mid);
   box-shadow: 0 0 0 3px rgba(0, 104, 181, 0.12);
   outline: none;
 }
- 
+
 .newsletter-body .form-check-input:checked {
   background-color: var(--intel-blue-mid);
   border-color: var(--intel-blue-mid);
 }
- 
+
 .newsletter-body .form-check-label {
   font-size: 0.85rem;
   color: var(--text-mid);
 }
- 
+
 .newsletter-divider {
   border: none;
   border-top: 1px solid #dce6f0;
   margin: 1.25rem 0;
 }
- 
+
 .topic-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px 1rem;
 }
- 
+
 .newsletter-error {
   display: none;
   font-size: 0.8rem;
   color: #E24B4A;
   margin-top: 4px;
 }
- 
+
 .btn-intel-submit {
   display: block;
   width: 100%;
@@ -469,31 +443,186 @@ body > p {
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
- 
+
 .btn-intel-submit:hover {
   background: var(--intel-blue-dark);
   transform: translateY(-1px);
 }
- 
+
 .btn-intel-submit:active {
   transform: scale(0.98);
 }
- 
+
 .newsletter-success {
   display: none;
   text-align: center;
   padding: 1.5rem 1rem;
 }
- 
+
 .newsletter-success p:first-child {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--intel-blue-dark);
   margin-bottom: 0.4rem;
 }
- 
+
 .newsletter-success p:last-child {
   font-size: 0.9rem;
   color: var(--text-mid);
   margin: 0;
+}
+
+/* ====================================================
+   FOOTER
+==================================================== */
+.site-footer {
+  background: linear-gradient(160deg, var(--intel-blue-dark) 0%, #002550 100%);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Cairo', sans-serif;
+  margin-top: 4rem;
+  padding: 3.5rem 0 0;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Brand column */
+.footer-brand img {
+  width: 72px;
+  margin-bottom: 1rem;
+  filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 0.6rem;
+  max-width: 280px;
+}
+
+.footer-tagline {
+  font-size: 0.78rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--intel-cyan) !important;
+  text-transform: uppercase;
+}
+
+/* Link columns */
+.footer-links h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links ul li a {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links ul li a:hover {
+  color: var(--intel-cyan);
+}
+
+/* Divider */
+.footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Bottom bar */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.25rem 0 1.5rem;
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+.footer-legal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.footer-legal li a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal li a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Footer responsive */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 2.5rem 0 0;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .footer-legal {
+    gap: 0.25rem 1rem;
+  }
 }
