@@ -6,7 +6,6 @@
   <title>Intel: Sustainability Through the Ages</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -191,5 +190,124 @@
   </div>
 </div>
 
+</body>
+</html>
+
+<!-- Newsletter Subscription Form -->
+  <div class="container my-5">
+    <div class="newsletter-form-wrap mx-auto">
+ 
+      <div class="newsletter-header">
+        <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+        <h2>Sustainability Newsletter</h2>
+        <p>Stay informed on Intel's progress toward net-zero, water stewardship, and responsible manufacturing.</p>
+      </div>
+ 
+      <div class="newsletter-body">
+ 
+        <div id="form-area">
+          <div class="row g-3 mb-3">
+            <div class="col-6">
+              <label class="form-label" for="firstName">First name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Jane" />
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="lastName">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Smith" />
+            </div>
+          </div>
+ 
+          <div class="mb-3">
+            <label class="form-label" for="email">Email address <span style="color:#E24B4A">*</span></label>
+            <input type="email" class="form-control" id="email" placeholder="jane@example.com" />
+            <div id="email-err" class="newsletter-error">Please enter a valid email address.</div>
+          </div>
+ 
+          <div class="mb-3">
+            <label class="form-label" for="orgType">Organisation type</label>
+            <select class="form-select" id="orgType">
+              <option value="" disabled selected>Select one…</option>
+              <option>Technology / Semiconductor</option>
+              <option>Government / Policy</option>
+              <option>Academia / Research</option>
+              <option>NGO / Advocacy</option>
+              <option>Finance / Investment</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+ 
+          <hr class="newsletter-divider" />
+ 
+          <div class="mb-3">
+            <label class="form-label d-block mb-2">Topics of interest</label>
+            <div class="topic-grid">
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="t1" checked /><label class="form-check-label" for="t1">Climate &amp; emissions</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="t2" /><label class="form-check-label" for="t2">Water stewardship</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="t3" /><label class="form-check-label" for="t3">Renewable energy</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="t4" /><label class="form-check-label" for="t4">Waste &amp; circular</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="t5" /><label class="form-check-label" for="t5">Supply chain</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" id="t6" /><label class="form-check-label" for="t6">Policy &amp; reporting</label></div>
+            </div>
+          </div>
+ 
+          <div class="mb-3">
+            <label class="form-label" for="freq">Email frequency</label>
+            <select class="form-select" id="freq">
+              <option value="monthly" selected>Monthly digest</option>
+              <option value="quarterly">Quarterly summary</option>
+              <option value="breaking">Breaking news only</option>
+            </select>
+          </div>
+ 
+          <div class="mb-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="consent" />
+              <label class="form-check-label" for="consent" style="font-size: 0.8rem;">
+                I agree to receive communications from Intel and understand I can unsubscribe at any time.
+                <a href="#" style="color: #0068B5;">Privacy policy</a>.
+              </label>
+            </div>
+            <div id="consent-err" class="newsletter-error">You must agree to continue.</div>
+          </div>
+ 
+          <button class="btn-intel-submit" id="submitBtn" type="button">Subscribe</button>
+        </div>
+ 
+        <div class="newsletter-success" id="success-msg">
+          <p id="success-name">You're subscribed!</p>
+          <p>Thanks for signing up. Your first Intel Sustainability Newsletter will arrive in your inbox soon.</p>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+ 
+  <script>
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      let valid = true;
+ 
+      const email = document.getElementById('email').value.trim();
+      const emailErr = document.getElementById('email-err');
+      const consent = document.getElementById('consent').checked;
+      const consentErr = document.getElementById('consent-err');
+ 
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      emailErr.style.display = emailOk ? 'none' : 'block';
+      if (!emailOk) valid = false;
+ 
+      consentErr.style.display = consent ? 'none' : 'block';
+      if (!consent) valid = false;
+ 
+      if (!valid) return;
+ 
+      const first = document.getElementById('firstName').value.trim();
+      document.getElementById('form-area').style.display = 'none';
+      const msg = document.getElementById('success-msg');
+      msg.style.display = 'block';
+      if (first) document.getElementById('success-name').textContent = "You're subscribed, " + first + "!";
+    });
+  </script>
+ 
 </body>
 </html>
