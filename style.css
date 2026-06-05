@@ -1,22 +1,11 @@
-/* ====================================================
-   FONTS
-   Plus Jakarta Sans = body text
-   Syne = bold headings (replaces Barlow Condensed)
-==================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Syne:wght@700;800&display=swap');
 
-/* ====================================================
-   RESET
-==================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ====================================================
-   CSS VARIABLES
-==================================================== */
 :root {
   --intel-blue-dark:   #003C71;
   --intel-blue-mid:    #0068B5;
