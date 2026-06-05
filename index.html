@@ -282,6 +282,58 @@
     });
   </script>
 
+  <script>
+    // ── RTL Language Detection ───────────────────────────────────────────────
+    // Languages that are written right-to-left
+    const RTL_LANGUAGES = new Set([
+      'ar', 'arc', 'dv', 'fa', 'ha', 'he', 'khw', 'ks',
+      'ku', 'ps', 'ur', 'yi'
+    ]);
+
+    // Extracts the base language code from a lang string like "ar", "ar-SA", "zh-TW"
+    function getBaseLang(lang) {
+      return (lang || '').toLowerCase().split('-')[0].trim();
+    }
+
+    // Returns true if the given lang code is RTL
+    function isRTL(lang) {
+      return RTL_LANGUAGES.has(getBaseLang(lang));
+    }
+
+    // Applies or removes RTL direction on <html> and <body>
+    function applyDirection(lang) {
+      const dir = isRTL(lang) ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', dir);
+      document.body.setAttribute('dir', dir);
+
+      // Also update all dir="auto" blocks so they snap to the page direction
+      document.querySelectorAll('[dir="auto"]').forEach(function (el) {
+        el.setAttribute('dir', dir);
+      });
+
+      console.log('[RTL detector] lang="' + lang + '" → dir="' + dir + '"');
+    }
+
+    // Run once on page load using whatever lang is already set
+    applyDirection(document.documentElement.lang);
+
+    // Watch for Google Translate (and any other tool) changing the lang attribute
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === 'lang') {
+          const newLang = document.documentElement.getAttribute('lang') || '';
+          applyDirection(newLang);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+    // Google Translate sometimes changes lang on <body> instead of <html>
+    observer.observe(document.body, { attributes: true, attributeFilter: ['lang'] });
+    // ── End RTL Detection ────────────────────────────────────────────────────
+  </script>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
